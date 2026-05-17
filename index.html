@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Відкривай Україну | Туристична агенція</title>
+    <!-- Підключаємо Tailwind CSS для сучасного та швидкого дизайну -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Додаткові стилі для плавних переходів та приємного шрифту */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .fade-in { animation: fadeIn 0.4s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Приховуємо скролбар для відео контейнера */
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+
+    <!-- Навігаційне меню, яке відображається на всіх "сторінках" -->
+    <header class="bg-blue-900 text-white shadow-md sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center">
+            <div class="text-2xl font-bold mb-4 sm:mb-0 flex items-center gap-2">
+                <svg class="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                Відкривай Україну
+            </div>
+            <nav>
+                <ul class="flex gap-2 sm:gap-6 text-sm sm:text-base font-semibold">
+                    <li><a href="#" onclick="showPage('homePage'); return false;" id="nav-homePage" class="nav-link text-yellow-400 hover:text-yellow-300 transition px-2 py-1 border-b-2 border-yellow-400">Головна</a></li>
+                    <li><a href="#" onclick="showPage('toursPage'); return false;" id="nav-toursPage" class="nav-link text-white hover:text-yellow-300 transition px-2 py-1 border-b-2 border-transparent">Наші тури</a></li>
+                    <li><a href="#" onclick="showPage('bookingPage'); return false;" id="nav-bookingPage" class="nav-link text-white hover:text-yellow-300 transition px-2 py-1 border-b-2 border-transparent">Бронювання</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Головний контейнер для контенту -->
+    <main class="flex-grow max-w-5xl mx-auto w-full px-4 py-8">
+
+        <!-- СТОРІНКА 1: ГОЛОВНА -->
+        <section id="homePage" class="page-section fade-in block">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?auto=format&fit=crop&w=1200&q=80" alt="Гірський пейзаж Карпат" class="w-full h-64 sm:h-96 object-cover">
+                <div class="p-6 sm:p-10">
+                    <h1 class="text-3xl sm:text-4xl font-bold text-blue-900 mb-4">Вітаємо у світі подорожей!</h1>
+                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
+                        Ваша ідеальна подорож починається тут. Ми пропонуємо найкращі авторські маршрути Україною: від містичних вершин Карпат до затишних вуличок стародавнього Львова. Досліджуйте красу рідного краю разом з нами.
+                    </p>
+
+                    <div class="grid sm:grid-cols-2 gap-8 mt-8">
+                        <div>
+                            <h2 class="text-2xl font-bold text-slate-800 mb-4 border-b-2 border-blue-100 pb-2">Чому обирають нас?</h2>
+                            <ul class="space-y-3 text-slate-600">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-green-500 font-bold">✓</span> Професійні гіди з багаторічним досвідом
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-green-500 font-bold">✓</span> Тільки комфортабельний транспорт
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-green-500 font-bold">✓</span> Проживання у перевірених готелях
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-green-500 font-bold">✓</span> Медичне страхування включено
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-4 border-b-2 border-blue-100 pb-2">Топ-3 напрямки сезону</h3>
+                            <ol class="list-decimal list-inside space-y-3 text-slate-600 font-medium ml-2">
+                                <li class="p-2 bg-slate-50 rounded-lg">Загадкові Карпати та озеро Синевир</li>
+                                <li class="p-2 bg-slate-50 rounded-lg">Морський вікенд: Одеса та Затока</li>
+                                <li class="p-2 bg-slate-50 rounded-lg">Історичні замки золотої підкови Львівщини</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- СТОРІНКА 2: НАШІ ТУРИ (Мультимедіа) -->
+        <section id="toursPage" class="page-section hidden fade-in">
+            <h1 class="text-3xl font-bold text-blue-900 mb-6 text-center">Популярні маршрути та відео</h1>
+            
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 sm:p-10 mb-8">
+                <h2 class="text-2xl font-bold text-slate-800 mb-4">Відчуйте атмосферу гір</h2>
+                <p class="text-slate-600 mb-6">
+                    Перш ніж вирушити у подорож, перегляньте коротке відео з нашого останнього походу на гору Говерла. Це допоможе вам зрозуміти, яка краса чекає на вас!
+                </p>
+                
+                <!-- Вбудоване відео (iframe) -->
+                <div class="video-container rounded-xl shadow-md border-4 border-slate-100">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Fck02ytSwJk?si=vQ4nl9oI5SKUW0ls" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-6">
+                <!-- Картка туру 1 -->
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden border border-slate-100">
+                    <img src="https://lviv.travel/image/news/4c/d6/4cd6916ff31ce68b7a0043c4df272f90374f56e6_1585229828.png?crop=1097%2C734%2C212%2C1" alt="Львів" class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-bold text-slate-800">Вихідні у Львові</h3>
+                        <p class="text-slate-500 text-sm mt-2">Кава, шоколад та неймовірна архітектура.</p>
+                        <button onclick="showPage('bookingPage')" class="mt-4 w-full bg-blue-100 text-blue-800 font-semibold py-2 rounded-lg hover:bg-blue-200 transition">Забронювати</button>
+                    </div>
+                </div>
+                <!-- Картка туру 2 -->
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden border border-slate-100">
+                    <img src="https://uamedtours.com.ua/storage/images/0b72f48967d33b504c7b742bba050f4d.jpg" alt="Одеса" class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-bold text-slate-800">Перлина біля моря</h3>
+                        <p class="text-slate-500 text-sm mt-2">Екскурсії Одесою та відпочинок на пляжі.</p>
+                        <button onclick="showPage('bookingPage')" class="mt-4 w-full bg-blue-100 text-blue-800 font-semibold py-2 rounded-lg hover:bg-blue-200 transition">Забронювати</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- СТОРІНКА 3: ФОРМА БРОНЮВАННЯ -->
+        <section id="bookingPage" class="page-section hidden fade-in">
+            <div class="max-w-2xl mx-auto bg-white rounded-2xl shadow-sm border border-slate-100 p-6 sm:p-10">
+                <h1 class="text-3xl font-bold text-blue-900 mb-2">Забронювати тур</h1>
+                <p class="text-slate-600 mb-8">Заповніть анкету, і наш менеджер зв'яжеться з вами для уточнення деталей подорожі.</p>
+
+                <!-- Повідомлення про успішну відправку (приховане за замовчуванням) -->
+                <div id="successMessage" class="hidden bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg mb-6 flex items-center gap-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    <strong>Дякуємо!</strong> Ваша заявка успішно надіслана.
+                </div>
+
+                <form id="bookingForm" class="space-y-5" onsubmit="handleFormSubmit(event)">
+                    
+                    <div class="flex flex-col">
+                        <label for="fullName" class="text-sm font-semibold text-slate-700 mb-1">ПІБ (Повне ім'я) <span class="text-red-500">*</span></label>
+                        <input type="text" id="fullName" required placeholder="Іваненко Іван Іванович" 
+                               class="px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-5">
+                        <div class="flex flex-col flex-1">
+                            <label for="email" class="text-sm font-semibold text-slate-700 mb-1">Email <span class="text-red-500">*</span></label>
+                            <input type="email" id="email" required placeholder="example@mail.com" 
+                                   class="px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                        </div>
+                        <div class="flex flex-col flex-1">
+                            <label for="phone" class="text-sm font-semibold text-slate-700 mb-1">Номер телефону <span class="text-red-500">*</span></label>
+                            <input type="tel" id="phone" required placeholder="+38 (000) 000-00-00" 
+                                   class="px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col">
+                        <label for="tourSelect" class="text-sm font-semibold text-slate-700 mb-1">Оберіть напрямок</label>
+                        <select id="tourSelect" class="px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none bg-white transition">
+                            <option value="karpaty">Загадкові Карпати</option>
+                            <option value="lviv">Вихідні у Львові</option>
+                            <option value="odesa">Одеса - Перлина біля моря</option>
+                            <option value="other">Інший (вказати в коментарях)</option>
+                        </select>
+                    </div>
+
+                    <div class="flex flex-col">
+                        <label for="comments" class="text-sm font-semibold text-slate-700 mb-1">Додаткові побажання</label>
+                        <textarea id="comments" rows="3" placeholder="Напишіть, якщо маєте особливі вимоги до харчування або проживання..." 
+                                  class="px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition resize-none"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-yellow-500 hover:bg-yellow-400 text-blue-900 font-bold text-lg py-3 rounded-xl shadow-md transition transform hover:-translate-y-0.5 mt-4">
+                        Відправити заявку
+                    </button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Підвал сайту -->
+    <footer class="bg-slate-800 text-slate-400 py-6 text-center mt-auto">
+        <p>© 2024 Відкривай Україну.</p>
+    </footer>
+
+    <script>
+        // Функція для перемикання "сторінок" (секцій)
+        function showPage(pageId) {
+            // 1. Знаходимо всі секції (сторінки) та приховуємо їх
+            const pages = document.querySelectorAll('.page-section');
+            pages.forEach(page => {
+                page.classList.add('hidden');
+                page.classList.remove('block');
+            });
+
+            // 2. Показуємо ту секцію, яку запросив користувач
+            const activePage = document.getElementById(pageId);
+            if(activePage) {
+                activePage.classList.remove('hidden');
+                activePage.classList.add('block');
+            }
+
+            // 3. Оновлюємо стиль кнопок у навігаційному меню
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                // Скидаємо стилі активного посилання
+                link.classList.remove('text-yellow-400', 'border-yellow-400');
+                link.classList.add('text-white', 'border-transparent');
+            });
+
+            // Задаємо стиль активному посиланню
+            const activeNav = document.getElementById('nav-' + pageId);
+            if(activeNav) {
+                activeNav.classList.remove('text-white', 'border-transparent');
+                activeNav.classList.add('text-yellow-400', 'border-yellow-400');
+            }
+
+            // Прокручуємо нагору при зміні сторінки
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Функція обробки відправки форми (без використання alert)
+        function handleFormSubmit(event) {
+            event.preventDefault(); // Зупиняємо стандартну поведінку форми (перезавантаження)
+            
+            // Показуємо повідомлення про успіх
+            const successMsg = document.getElementById('successMessage');
+            successMsg.classList.remove('hidden');
+            
+            // Очищаємо форму
+            document.getElementById('bookingForm').reset();
+            
+            // Ховаємо повідомлення через 5 секунд
+            setTimeout(() => {
+                successMsg.classList.add('hidden');
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
